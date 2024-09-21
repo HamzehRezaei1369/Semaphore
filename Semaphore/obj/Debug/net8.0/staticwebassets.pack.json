@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Semaphore\\Semaphore\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Semaphore.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Semaphore.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Semaphore\\Semaphore\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Semaphore\\Semaphore\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Semaphore\\Semaphore\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Semaphore\\Semaphore\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Semaphore.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Semaphore.props",
+      "PackagePath": "build\\Semaphore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Semaphore.props",
+      "PackagePath": "buildMultiTargeting\\Semaphore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Semaphore.props",
+      "PackagePath": "buildTransitive\\Semaphore.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

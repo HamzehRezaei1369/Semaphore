@@ -1,0 +1,62 @@
+﻿@page "/"
+@rendermode InteractiveServer
+<button @onclick="NoneSemaphore">Non Semaphore</button>
+<button @onclick="Semaphore">Semaphore</button>
+@code {
+    async Task NoneSemaphore()
+    {
+        int value = 0;
+        Task t1 = Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(1000);
+                if (value >= 5) await Console.Out.WriteLineAsync("Task 1:OK");
+                else await Console.Out.WriteLineAsync("Task 1:Wrong...");
+            }
+        });
+
+        Task t2 = Task.Run(async () =>
+        {
+            while (true)
+            {
+                value++;
+                if(value>=5)
+                await Console.Out.WriteLineAsync("Task 2:Value:" + value.ToString());
+                await Task.Delay(2000);
+            }
+        });
+        await Task.WhenAll(t1, t2);
+
+    }
+    async Task Semaphore()
+    {
+        //SemaphoreSlim semaphoreSlim = new SemaphoreSlim(3);//عدد سه یعنی من تا سه بار بهت اجازه میدم از روی اویت ایسینک رد بشی بعد از اوتن اجازه نداری تا زمانی که دیباگ اجرا بشه
+        SemaphoreSlim semaphoreSlim = new SemaphoreSlim(0);//یعنی من اجازه نمیدم از خط اویت ایسینک بری پایین تا زمانی که دیباگ رو بخونی
+        int value = 0;
+        Task t1 = Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(1000);
+                await semaphoreSlim.WaitAsync();//--
+                if (value >= 5) await Console.Out.WriteLineAsync("Task 1:OK");
+                else await Console.Out.WriteLineAsync("Task 1:Wrong...");
+            }
+        });
+
+        Task t2 = Task.Run(async () =>
+        {
+            while (true)
+            {
+                value++;
+                if (value >= 5)
+                    semaphoreSlim.Release();//++
+                await Console.Out.WriteLineAsync("Task 2:Value:" + value.ToString());
+                await Task.Delay(2000);
+            }
+        });
+        await Task.WhenAll(t1, t2);
+    }
+
+}
